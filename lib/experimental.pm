@@ -24,6 +24,7 @@ my %min_version = (
 	autoderef       => '5.14.0',
 	bitwise         => '5.22.0',
 	builtin         => '5.35.7',
+	class           => '5.37.9',
 	const_attr      => '5.22.0',
 	current_sub     => '5.16.0',
 	declared_refs   => '5.26.0',
@@ -33,6 +34,8 @@ my %min_version = (
 	fc              => '5.16.0',
 	for_list        => '5.35.5',
 	isa             => '5.31.7',
+	keyword_all     => '5.41.7',
+	keyword_any     => '5.41.7',
 	lexical_topic   => '5.10.0',
 	lexical_subs    => '5.18.0',
 	postderef       => '5.20.0',
@@ -47,11 +50,13 @@ my %min_version = (
 	try             => '5.34.0',
 	unicode_eval    => '5.16.0',
 	unicode_strings => '5.12.0',
+	win32_perlio    => '5.8.0',
 );
 my %removed_in_version = (
 	array_base      => '5.30.0',
 	autoderef       => '5.24.0',
 	lexical_topic   => '5.24.0',
+	win32_perlio    => '5.36.0',
 );
 
 $_ = version->new($_) for values %min_version;
@@ -183,6 +188,10 @@ This was added in perl 5.36.0
 
 This was added in perl 5.22.0.
 
+=item * C<class> - enables the C<class>, C<field>, and C<method> syntax
+
+This was added in perl 5.38.0.
+
 =item * C<declared_refs> - enables aliasing via assignment to references
 
 This was added in perl 5.26.0.
@@ -203,6 +212,14 @@ This was added in perl 5.36.0
 =item * C<isa> - allow the use of the C<isa> infix operator
 
 This was added in perl 5.32.0.
+
+=item * C<keyword_all> - enables the C<all> operator
+
+This was added in perl 5.42.0.
+
+=item * C<keyword_any> - enables the C<any> operator
+
+This was added in perl 5.42.0.
 
 =item * C<lexical_topic> - allow the use of lexical C<$_> via C<my $_>.
 
@@ -230,7 +247,11 @@ This was added in perl 5.22.0.
 
 =item * C<regex_sets> - allow extended bracketed character classes in regexps
 
-This was added in perl 5.18.0.
+This was added in perl 5.18.0, and became non-experimental (and always
+enabled) in 5.36.0.
+
+This is documented at
+L<perlrecharclass/Extended Bracketed Character Classes>.
 
 =item * C<signatures> - allow subroutine signatures (for named arguments)
 
@@ -241,13 +262,14 @@ This was added in perl 5.20.0.
 This was added in perl 5.10.0, but it should be noted there are significant
 incompatibilities between 5.10.0 and 5.10.1.
 
-The feature is going to be deprecated in perl 5.38.0, and removed in 5.42.0.
+The feature was deprecated in perl 5.38.0, and undeprecated in 5.42.0.
 
 =item * C<switch> - allow the use of C<~~>, given, and when
 
 This was added in perl 5.10.0.
 
-The feature is going to be deprecated in perl 5.38.0, and removed in 5.42.0.
+The feature was deprecated in perl 5.38.0, and undeprecated in
+5.42.0.
 
 =item * C<try> - allow the use of C<try> and C<catch>
 

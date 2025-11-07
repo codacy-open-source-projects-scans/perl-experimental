@@ -2,6 +2,20 @@ Revision history for experimental
 
 {{$NEXT}}
 
+0.036     2025-07-17 01:40:39+02:00 Europe/Brussels
+          - Add features "class", "keyword_any" and "keyword_all"
+
+0.035     2025-05-01 11:35:41+02:00 Europe/Berlin
+          - regex_sets no longer experimental
+          - switch/smartmatch were deprecated then undeprecated
+          - Properly handle the win32_perlio warning
+
+0.034     2025-01-09 22:11:31+01:00 Europe/Brussels
+          - Rerelease to deal with illegal core update
+
+0.033     2024-12-24 00:50:41+01:00 Europe/Brussels
+          - feature extra_paired_delimiters not considered stable
+
 0.032     2024-04-25 22:30:41+01:00 Europe/Lisbon
           - Add the newly-stable features to stable.pm - extra_paired_delimiters, const_attr, for_list
 
